@@ -35,7 +35,7 @@ def base_layout(height: int, title: str | None = None, **over) -> dict:
         font=dict(family=FONT, color=TEXT_SOFT, size=12),
         margin=dict(l=64, r=28, t=58 if title else 24, b=52),
         hoverlabel=dict(bgcolor=SURFACE, bordercolor=MINT, font=dict(family=MONO, size=12, color=TEXT)),
-        title=dict(text=f"<b>{title}</b>" if title else None, x=0.01, xanchor="left",
+        title=dict(text=f"<b>{title}</b>" if title else "", x=0.01, xanchor="left",
                    font=dict(size=15, color=TEXT, family=FONT)),
         xaxis=dict(gridcolor=GRID, zeroline=False, linecolor=GRID, tickfont=dict(size=11, family=MONO),
                    title=dict(font=dict(size=12, color=MUTED))),
@@ -60,8 +60,8 @@ def policy_bars(summary: pd.DataFrame, kpi: str, title: str, unit: str = "", fmt
     fig = go.Figure(go.Bar(
         x=names, y=d[kpi], marker=dict(color=[POLICY_COLORS[p] for p in d["policy"]], line=dict(color=BG, width=2)),
         error_y=dict(type="data", array=ci, color=TEXT_SOFT, thickness=1.4, width=6),
-        text=[f"{v:{fmt}}" for v in d[kpi]], textposition="outside", cliponaxis=False,
-        textfont=dict(family=MONO, size=12, color=TEXT),
+        text=[f"{v:{fmt}}" for v in d[kpi]], textposition="inside", insidetextanchor="end",
+        textfont=dict(family=MONO, size=13, color=BG), textangle=0,
         customdata=ci, hovertemplate="%{x}<br>%{y:" + fmt + "} ± %{customdata:" + fmt + "} " + unit + "<extra></extra>"))
     top = float((d[kpi] + ci).max())
     fig.update_layout(**base_layout(height, title, bargap=0.42,
@@ -80,8 +80,8 @@ def policy_overview(summary: pd.DataFrame, height: int = 420) -> go.Figure:
         fig.add_trace(go.Bar(
             x=names, y=d[kpi], marker=dict(color=[POLICY_COLORS[p] for p in d["policy"]], line=dict(color=BG, width=2)),
             error_y=dict(type="data", array=ci, color=TEXT_SOFT, thickness=1.4, width=6),
-            text=[f"{v:{fmt}}" for v in d[kpi]], textposition="outside", cliponaxis=False,
-            textfont=dict(family=MONO, size=12, color=TEXT),
+            text=[f"{v:{fmt}}" for v in d[kpi]], textposition="inside", insidetextanchor="end",
+            textfont=dict(family=MONO, size=13, color=BG), textangle=0,
             hovertemplate="%{x}<br>%{y:" + fmt + "}<extra></extra>"), row=1, col=col)
         fig.update_yaxes(range=[0, float((d[kpi] + ci).max()) * 1.2], row=1, col=col)
     fig.update_layout(**base_layout(height, None, bargap=0.38, margin=dict(t=48)))
@@ -105,9 +105,9 @@ def downtime_split(summary: pd.DataFrame, height: int = 340) -> go.Figure:
         fig.add_annotation(x=cm + pm, y=name, text=f"{cm + pm:.0f} h", showarrow=False, xanchor="left", xshift=8,
                            font=dict(family=MONO, size=12, color=TEXT))
     fig.update_layout(**base_layout(height, "Where the downtime goes · machine-hours per run", barmode="stack",
-                                    bargap=0.38, showlegend=True, margin=dict(l=150, r=60),
-                                    legend=dict(orientation="h", y=-0.2, x=0, traceorder="normal", font=dict(size=12, color=TEXT_SOFT)),
-                                    xaxis=dict(title=dict(text="machine-hours"))))
+                                    bargap=0.38, showlegend=True, margin=dict(l=150, r=60, b=84),
+                                    legend=dict(orientation="h", y=-0.14, yanchor="top", x=0, traceorder="normal",
+                                                font=dict(size=12, color=TEXT_SOFT))))
     return fig
 
 
@@ -227,7 +227,8 @@ def pm_allocation(mt: pd.DataFrame, height: int = 330) -> go.Figure:
                              hovertemplate=POLICY_NAMES[p] + " · %{x}<br>%{y:.1f} PMs per run<extra></extra>"))
     fig.update_layout(**base_layout(height, "Where the PM effort goes · PMs per machine", barmode="group",
                                     bargap=0.3, bargroupgap=0.08, showlegend=True,
-                                    legend=dict(orientation="h", y=1.12, x=1, xanchor="right", font=dict(size=12, color=TEXT_SOFT)),
-                                    yaxis=dict(title=dict(text="PMs per 60-day run"))))
+                                    legend=dict(orientation="h", y=1.0, yanchor="bottom", x=0, xanchor="left",
+                                                font=dict(size=12, color=TEXT_SOFT)),
+                                    margin=dict(t=92), yaxis=dict(title=dict(text="PMs per 60-day run"))))
     return fig
 

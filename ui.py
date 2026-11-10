@@ -96,6 +96,9 @@ section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] p { col
 .kpi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .kpi-value { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 1.95rem; font-weight: 700;
   color: var(--text); margin: 7px 0 3px; letter-spacing: -0.02em; line-height: 1.1; }
+.kpi-value.num { white-space: nowrap; font-size: clamp(1.25rem, 2.1vw, 1.95rem); }
+.kpi-value.txt { font-family: 'Inter', sans-serif; font-size: clamp(1.05rem, 1.6vw, 1.5rem); letter-spacing: -0.01em;
+  word-break: normal; overflow-wrap: normal; hyphens: none; }
 .kpi-value small { font-size: 0.95rem; color: var(--soft); font-weight: 500; margin-left: 3px; }
 .kpi-sub { font-size: 12.5px; color: var(--soft); }
 
@@ -199,10 +202,12 @@ def section(label: str, title: str, sub: str = "") -> None:
                 unsafe_allow_html=True)
 
 
-def kpi(label: str, value: str, sub: str = "", tone: str = "mint", unit: str = "") -> str:
+def kpi(label: str, value: str, sub: str = "", tone: str = "mint", unit: str = "", text: bool = False) -> str:
+    """KPI card. text=True for a word value (e.g. a policy name): sans font, wraps between words only."""
     u = f"<small>{unit}</small>" if unit else ""
+    cls = "txt" if text else "num"
     return (f'<div class="kpi" style="--c:{_c(tone)}"><div class="kpi-label">{label}</div>'
-            f'<div class="kpi-value">{value}{u}</div><div class="kpi-sub">{sub or "&nbsp;"}</div></div>')
+            f'<div class="kpi-value {cls}">{value}{u}</div><div class="kpi-sub">{sub or "&nbsp;"}</div></div>')
 
 
 def show(html: str) -> None:

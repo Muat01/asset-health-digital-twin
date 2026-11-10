@@ -105,7 +105,7 @@ with tab_cmp:
     rtf = s.loc["RTF"]
     b = s.loc[best]
     c1, c2, c3, c4 = st.columns(4)
-    html(ui.kpi("Lowest cost per part", POLICY_NAMES[best], f"{b['cost_per_part']:.2f} vs {rtf['cost_per_part']:.2f} run-to-failure", "mint"), c1)
+    html(ui.kpi("Lowest cost per part", POLICY_NAMES[best], f"{b['cost_per_part']:.2f} vs {rtf['cost_per_part']:.2f} run-to-failure", "mint", text=True), c1)
     html(ui.kpi("Throughput", f"{b['throughput_per_h']:.2f}", f"good parts/h · {(b['throughput_per_h'] / rtf['throughput_per_h'] - 1) * 100:+.1f}% vs RTF",
                 "cyan", unit="/h"), c2)
     html(ui.kpi("Failures per run", f"{b['failures']:.0f}", f"vs {rtf['failures']:.0f} with run-to-failure", "violet"), c3)
