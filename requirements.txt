@@ -1,0 +1,6 @@
+streamlit>=1.50
+simpy>=4.1
+numpy
+pandas
+plotly
+pytest
