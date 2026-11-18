@@ -31,6 +31,6 @@ figs = {
     "inspection_noise.png": (charts.noise_curve(R["inspection_noise"]), 1000),
 }
 for name, (fig, width) in figs.items():
-    fig.update_layout(paper_bgcolor="#0d1424")
+    fig.update_layout(paper_bgcolor="#171E1B")
     fig.write_image(f"docs/{name}", width=width, scale=2)
 print(f"{len(figs)} docs figures written")

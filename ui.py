@@ -16,9 +16,9 @@ CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
-  --bg: #070b14; --surface: #0d1424; --surface2: #121a2e;
-  --border: rgba(255,255,255,0.08); --text: #e8edf7; --soft: #aab3c8; --muted: #7b86a0;
-  --mint: #19e3b1; --cyan: #4cc9f0; --violet: #8b7bff; --amber: #ffb020; --red: #ff5470;
+  --bg: #0E1311; --surface: #171E1B; --surface2: #1F2824;
+  --border: rgba(255,255,255,0.08); --text: #EEF2EF; --soft: #B7C2BC; --muted: #7E8C85;
+  --mint: #22C98A; --cyan: #6FA8FF; --violet: #9479E6; --amber: #E6B94A; --red: #F0616D;
   --mono: 'JetBrains Mono', Consolas, monospace;
 }
 
@@ -54,7 +54,7 @@ section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] p { col
 .hero-eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--mint); border-radius: 2px; }
 .hero-title {
   font-size: 2.6rem; line-height: 1.08; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 10px 0;
-  background: linear-gradient(92deg, #ffffff 0%, #b9fbe8 45%, #4cc9f0 100%);
+  background: linear-gradient(92deg, #ffffff 0%, #9FE6C6 45%, #6FA8FF 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero-sub { color: var(--soft); font-size: 1.02rem; max-width: 760px; margin: 0 0 14px 0; line-height: 1.55; }
@@ -136,7 +136,7 @@ section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] p { col
 }
 .stTabs [data-baseweb="tab"]:hover { color: #fff; border-color: rgba(25,227,177,0.4); }
 .stTabs [aria-selected="true"] {
-  color: #04120e !important; background: linear-gradient(92deg, #19e3b1, #4cc9f0) !important;
+  color: #04120e !important; background: linear-gradient(92deg, #22C98A, #6FA8FF) !important;
   border-color: transparent !important; box-shadow: 0 6px 22px -8px rgba(25,227,177,0.7);
 }
 
@@ -151,7 +151,7 @@ div[data-baseweb="select"] > div, div[data-baseweb="input"] > div, div[data-base
   background: var(--surface2) !important; border-color: var(--border) !important; border-radius: 10px !important;
 }
 label[data-testid="stWidgetLabel"] p { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--soft); text-transform: uppercase; }
-span[data-baseweb="tag"] { background: rgba(25,227,177,0.14) !important; color: #b9fbe8 !important; border-radius: 8px !important; }
+span[data-baseweb="tag"] { background: rgba(25,227,177,0.14) !important; color: #9FE6C6 !important; border-radius: 8px !important; }
 div[data-testid="stDataFrame"] { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
 div[data-testid="stRadio"] label p { text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 500; }
 hr { border-color: var(--border); }
@@ -159,7 +159,7 @@ hr { border-color: var(--border); }
 /* ── Sidebar brand & footer ──────────────────────────── */
 .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 .brand-logo { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-size: 21px;
-  background: linear-gradient(135deg, #19e3b1, #4cc9f0 60%, #8b7bff); box-shadow: 0 8px 24px -8px rgba(25,227,177,0.6); }
+  background: linear-gradient(135deg, #22C98A, #6FA8FF 60%, #9479E6); box-shadow: 0 8px 24px -8px rgba(25,227,177,0.6); }
 .brand-name { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; color: #fff; line-height: 1.1; }
 .brand-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase; }
 .side-note { font-size: 12px; color: var(--muted); line-height: 1.5; }

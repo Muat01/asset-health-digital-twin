@@ -1,25 +1,25 @@
 """Design tokens (colors and fonts) shared by the UI layer and the charts."""
 
 # Surfaces
-BG = "#070b14"
-SURFACE = "#0d1424"
-SURFACE_2 = "#121a2e"
-BORDER = "rgba(255,255,255,0.08)"
-GRID = "rgba(255,255,255,0.055)"
+BG = "#0E1311"
+SURFACE = "#171E1B"
+SURFACE_2 = "#1F2824"
+BORDER = "#2A3530"
+GRID = "#232D29"
 
 # Text
-TEXT = "#e8edf7"
-TEXT_SOFT = "#aab3c8"
-MUTED = "#7b86a0"
+TEXT = "#EEF2EF"
+TEXT_SOFT = "#B7C2BC"
+MUTED = "#7E8C85"
 
 # Accents
-MINT = "#19e3b1"
-CYAN = "#4cc9f0"
-VIOLET = "#8b7bff"
-AMBER = "#ffb020"
-RED = "#ff5470"
-GREEN = "#2ee59d"
-SLATE = "#3b4a6b"
+MINT = "#22C98A"
+CYAN = "#6FA8FF"
+VIOLET = "#9479E6"
+AMBER = "#E6B94A"
+RED = "#F0616D"
+GREEN = "#16A673"
+SLATE = "#2F3C36"
 
 # Fonts (loaded from Google Fonts in ui.py)
 FONT = "Inter, 'Segoe UI', system-ui, sans-serif"

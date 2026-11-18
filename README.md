@@ -1,5 +1,9 @@
 # Asset Health Digital Twin
 
+[![tests](https://github.com/Muat01/asset-health-digital-twin/actions/workflows/tests.yml/badge.svg)](https://github.com/Muat01/asset-health-digital-twin/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22C98A.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org)
+
 **A health index drives the failure rate of every machine in a SimPy production line, so maintenance policies can be compared on throughput, downtime and cost per good part, not just on how often they fail.**
 
 ![Policy comparison](docs/policy_comparison.png)
